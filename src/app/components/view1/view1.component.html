@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>View Applications</title>
+        <p>You can view the applications here</p>
+    </head>
+    <body>
+            <style>
+                #customers {
+                    font-family: Arial, Helvetica, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+
+                #customers td, #customers th {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                }
+
+                #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+                #customers tr:hover {background-color: #ddd;}
+
+                #customers th {
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    text-align: left;
+                    background-color: #04AA6D;
+                    color: white;
+                }
+            </style>
+        <table id="customers"> 
+            <tr>                
+                <th>Application ID <br/></th>
+                <th>Loan Purpose <br/></th>
+                <th> Status <br/></th>
+                <th>Submitted Date<br/></th>
+            </tr>
+            <tr *ngFor="let value of data2">
+                <td> <button><a (click)='onSelect(value.applicationId)'>{{value?.applicationId}} </a></button></td>
+                <td>{{value?.loanPurpose}} <br/> </td>
+                <td>{{value?.applicationStatus}} <br/> </td>
+                <td>{{value?.timeStamp}} <br/> </td>
+            </tr>
+        </table>
+
+        <h1 align="jumbotron" align="center">
+            <a routerLink="/home"><button class="btn btn-success pull-right" >Back</button></a>
+        </h1>
+    </body>
+</html>
+<router-outlet></router-outlet>
+
+<!--
+    
+-->

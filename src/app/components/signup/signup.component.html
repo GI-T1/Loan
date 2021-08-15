@@ -1,0 +1,122 @@
+<div class="card">
+  <h4 class="card-header">Signup</h4>
+  <div class="card-body">
+    <button class="btn btn-success btn-lg px-4 mr-3" (click) = "openForm('ForApplicant')">Applicant</button>
+    <button class="btn btn-success btn-lg px-4 mr-3" (click) = "openForm('ForBank')">Manager</button>
+
+<div [ngSwitch]="User" >
+<div *ngSwitchCase="'ForApplicant'">
+    <form [formGroup]="registerForm" (ngSubmit)="registerdUser()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>DOB(DD/MM/YYYY) <span class="asterick">*</span></label>
+        <input  formControlName="dateOfBirth" type="date" class="form-control"
+        />
+        
+        <div *ngIf="f.dateOfBirth.touched && f.dateOfBirth.errors" class="text-warning">
+          <div *ngIf="f.dateOfBirth.errors.required">Dob is required</div>
+          <div *ngIf="f.dateOfBirth.errors.pattern">
+            dob must be in spacified format
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Marital Status <span class="asterick">*</span></label>
+         <select formControlName="maritalStatus" class="form-control">
+          <option value="Divorced">Divorced</option>
+          <option value="Married">Married</option> 
+          <option value="Seperated">Seperated</option>
+          <option value="Single">Single</option>
+          <option value="Widowed">Widow</option>
+        </select>
+        <div *ngIf="f.maritalStatus.touched && f.maritalStatus.errors" class="text-warning">
+          <div *ngIf="f.maritalStatus.errors.required">Marital Status is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>SSN Number <span class="asterick">*</span></label>
+        <input  formControlName="ssnNumber" type="number" class="form-control"
+         />
+        <div *ngIf="f.ssnNumber.touched && f.ssnNumber.errors" class="text-warning">
+          <div *ngIf="f.ssnNumber.errors.required">SSN Number is required</div>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <button class="btn btn-success btn-lg px-4 mr-3">Register</button>
+        <button (click)="onReset()" class="btn btn-warning" type="reset">
+          Reset
+        </button>
+      </div>
+ </form>
+</div>
+
+<div *ngSwitchCase="'ForBank'">
+    <form [formGroup]="BankForm" (ngSubmit)="registeredBanker()">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.username.errors }" />
+        <div *ngIf="submitted && b.username.errors" class="invalid-feedback">
+            <div *ngIf="b.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && b.password.errors }" />
+        <div *ngIf="submitted && b.password.errors" class="invalid-feedback">
+            <div *ngIf="b.password.errors.required">Password is required</div>
+            <div *ngIf="b.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Employee Id <span class="asterick">*</span></label>
+        <input  formControlName="employee_id" type="number" class="form-control"
+         />
+        <div *ngIf="b.employee_id.touched && b.employee_id.errors" class="text-warning">
+          <div *ngIf="b.employee_id.errors.required">Applicant Id is required</div>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <button class="btn btn-success btn-lg px-4 mr-3">Register</button>
+        <button (click)="onReset()" class="btn btn-warning" type="reset">
+          Reset
+        </button>
+      </div>
+    </form>
+</div>
+</div>
+</div>
+</div>

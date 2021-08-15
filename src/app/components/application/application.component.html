@@ -1,0 +1,177 @@
+<head>
+  <title>View Specific Application</title>
+  <style>
+      .one{
+           position:relative;
+          margin-left:27%;
+          font-size: 20px;
+       }       
+      .two{
+         flex-direction: column;
+      } 
+      .two label {
+           margin: 20px 20px 20px 20px;
+     }
+     .demo1{
+          width: 480px;
+          height: 330px;
+          border: 1px solid black;
+          float:right;
+          line-height: 1.2;
+          padding:3px;
+     }
+     .demo1 label{
+         margin: 10px 40px 40px 40px;
+     }
+     .demo2{
+         width: 480px;
+           height: 260px;
+           border: 1px solid black;
+         float:right;
+         line-height: 1.2;
+         padding:3px;
+         
+     }.demo2 label{
+         margin: 10px 40px 40px 40px;
+     }
+     .demo3{
+         width: 300px;
+           height: 109px;
+           border: 1px solid black;
+         padding: 3px;
+         box-sizing: border-box;
+         float:left;
+         position:relative; left:10px; 
+     }
+     .demo3label{
+     float:left;
+     }
+     .demo4{
+         width: 850px;
+         height: 365px;
+         border: 1px solid black;
+         padding: 3px;
+         line-height: 0.5;
+         float:right;
+         position:relative; left:35px; top:47px;
+     }.demo4 label{
+         margin: 10px 45px 30px 45px;
+     }
+     
+  </style>
+</head>
+<body>
+
+<div class="one">
+     Application ID :  {{data?.application.applicationId}}<br/>
+     Application Status : {{data?.application.applicationStatus}}<br/>
+     Score : {{data?.application.score}}<br/>
+     Decline Reason : {{data?.application.declineReason}}<br/>            
+</div>
+<br/>
+<h3>Original Application</h3>
+<hr height="2px">
+<br/>
+<div >
+ <form class="two" >
+     <label> First Name </label>
+           <input type="text" value="{{customerData?.firstName}}" readonly>
+      <span style="margin-left:85px">Address</span>
+      <span class="demo1">
+          <label>Address Line 1 </label>
+           <input type="text" value="{{customerData?.address.addressline1}}" readonly>
+         <br/>
+         <label>Address Line 2 </label>
+           <input type="text" value="{{customerData?.address.addressline2}}" readonly>
+         <br/>
+         <label>City </label>
+           <input type="text" value="{{customerData?.address.city}}" readonly>
+         <br/>
+         <label>State </label>
+           <input type="text" value="{{customerData?.address.state}}" readonly>
+         <br/>
+         <label>Postal Code </label>
+           <input type="text" value="{{customerData?.address.postalCode}}" readonly>
+      </span> 
+      <br/> <br/>
+       <label>Middle Name </label>  
+           <input type="text" value="{{customerData?.middleName}}" readonly>
+      <br/><br/>
+     <label>Last Name </label>
+           <input type="text" value="{{customerData?.lastName}}" readonly>  
+     <br/><br/>    
+       <label>Date of Birth </label>  
+           <input type="date" value="{{customerData?.dateOfBirth}}" readonly >
+      <br/><br/> 
+      <label>Marital Status </label>
+           <input type="text" value="{{customerData?.maritalStatus}}" readonly>
+      <span style="margin-left:380px">Contact Information</span>  
+      <span class="demo2">
+          <label>Home Phone  </label>
+           <input type="text" value="{{customerData?.homePhone}}" readonly>
+         <br/>
+         <label>Office Phone </label>
+           <input type="text" value="{{customerData?.officePhone}}" readonly>
+         <br/>
+         <label>Mobile </label>
+           <input type="text" value="{{customerData?.mobile}}" readonly>
+         <br/>
+         <label>Email Address</label>
+           <input type="text" value="{{customerData?.emailAddress}}" readonly>
+      </span> 
+      <br/> 
+      <label>SSN Number </label>  
+           <input type="text" value="{{customerData?.ssnNumber}}" readonly>
+      <br/><br/>
+     <label>Loan Amount </label>
+           <input type="text" value="{{data?.application.loanAmount}}" readonly>  
+     <br/><br/>    
+       <label>Loan Purpose </label>  
+           <input type="text" value="{{data?.application.loanPurpose}}" readonly >
+      <br/><br/>
+     <span class="demo3label">
+     <label>Description</label></span>
+     <textarea value="{{data?.application.description}} " readonly></textarea>
+     <span style="position:relative; right:420px; top:130px;">  Employment Details <br/></span>
+     <span class="demo4">
+         <label>Employer name </label>
+           <input type="text" value="{{customerData?.employerName}}" readonly >
+         <label> Work Experience </label> 
+           <input type="text" value= "{{customerData?.workExpYears}}  |  {{customerData?.workExpMonths}} " readonly >  
+         <br/>
+         <label>Annual Salary </label>
+           <input type="text" value="{{customerData?.annualSalary}}" readonly >
+         <label> Designation </label> 
+         <input type="text" value="{{customerData?.designation}}" readonly >
+         <br/><br/>
+         <span style="margin-left:20px"> Address </span><br/><br/><br/>
+          <label>Address Line 1 </label>
+           <input type="text" value="{{customerData?.employmentAddress.addressline1}}" readonly>
+         <br/>
+         <label> Address Line 2 </label>
+           <input type="text" value="{{customerData?.employmentAddress.addressline2}}" readonly>
+         <br/>
+         <label>City   </label>
+           <input type="text" value="{{customerData?.employmentAddress.city}}" readonly>
+         <br/>
+         <label> State  </label>
+           <input type="text" value="{{customerData?.employmentAddress.state}}" readonly>
+         <br/>
+         <label> Postal Code  </label>
+           <input type="text" value="{{customerData?.employmentAddress.postalCode}}" readonly>
+         </span>
+      <br/><br/>
+     
+         
+ </form>
+</div>
+<h1 class="jumbotron" align="center" >
+<br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+      <a routerLink="/view"><button class="btn btn-success pull-right" >Back</button></a>
+</h1>
+</body>
+<router-outlet></router-outlet>
